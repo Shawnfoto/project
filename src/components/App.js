@@ -8,72 +8,99 @@ import * as actions from "actions";
 // antd
 import "antd/dist/antd.css";
 import "../css/project.css";
-import { Layout, Menu, Breadcrumb, Icon } from "antd";
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+import { Layout, Menu, Icon } from "antd";
+const { Header, Sider, Content, Footer } = Layout;
 
-class App extends Component {
-  state = {
-    collapsed: false
-  };
-  onCollapse = collapsed => {
-    console.log(collapsed);
-    this.setState({ collapsed });
-  };
+const sideStyle = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0
+};
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: false
+    };
+    this.toggle = this.toggle.bind(this);
+  }
 
+  toggle() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
   render() {
     return (
-      <Layout>
-        <Sider
-          collapsible
-          collapsed={this.state.collapsed}
-          onCollapse={this.onCollapse}
-        >
-          <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1">
-              <Icon type="user" />
-              <span className="nav-text">test nav 1</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span className="nav-text">nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span className="nav-text">nav 3</span>
-            </Menu.Item>
-            <Menu.Item key="4">
-              <Icon type="user" />
-              <span className="nav-text">nav 4</span>
-            </Menu.Item>
-            <Menu.Item key="5">
-              <Icon type="heart-o" />
-              <span className="nav-text">nav 5</span>
-            </Menu.Item>
-            <Menu.Item key="6">
-              <Icon type="team" />
-              <span className="nav-text">nav 6</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout>
-          <Header style={{ background: "#fff", padding: 0 }} />
-          <Content style={{ margin: "0 16px" }}>
-            <Breadcrumb style={{ margin: "12px 0" }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
-              content
+      <div>
+        <nav className="navbar navbar-inverse navbar-fixed-top">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <button
+                type="button"
+                className="navbar-toggle pull-left"
+                data-toggle="collapse"
+                data-target="#myNavbar"
+                onClick={this.toggle}
+              >
+                <span className="icon-bar" />
+                <span className="icon-bar" />
+                <span className="icon-bar" />
+              </button>
+
+              <a className="navbar-brand" href="#">
+                LOGO
+              </a>
             </div>
-          </Content>
-          <Footer style={{ textAlign: "center" }}>
-            Ant Design ©2016 Created by Ant UED
-          </Footer>
-        </Layout>
-      </Layout>
+            <div className="collapse navbar-collapse" id="myNavbar">
+              <ul className="nav navbar-nav">
+                <li className="active">
+                  <a href="#">Home</a>
+                </li>
+                <li className="dropdown">
+                  <a
+                    className="dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#"
+                  >
+                    Page 1 <span className="caret" />
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a href="#">Page 1-1</a>
+                    </li>
+                    <li>
+                      <a href="#">Page 1-2</a>
+                    </li>
+                    <li>
+                      <a href="#">Page 1-3</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Page 2</a>
+                </li>
+                <li>
+                  <a href="#">Page 3</a>
+                </li>
+              </ul>
+              <ul className="nav navbar-nav navbar-right">
+                <li>
+                  <a href="#">
+                    <span className="glyphicon glyphicon-user" /> Sign Up
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span className="glyphicon glyphicon-log-in" /> Login
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
     );
   }
 }
