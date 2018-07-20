@@ -1,0 +1,66 @@
+* {
+  font-family: "Noto Serif", serif;
+  font-family: "Open Sans", sans-serif; }
+
+a {
+  color: #6c6868; }
+
+.navbar.navbar-fixed-top {
+  background-color: #ccc; }
+  @media all and (min-width: 768px) {
+    .navbar.navbar-fixed-top {
+      background-color: white; } }
+
+.navbar-toggle .icon-bar {
+  background-color: #fff; }
+
+.navbar-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #bc1212; }
+  @media all and (min-width: 768px) {
+    .navbar-brand {
+      position: static;
+      transform: initial; }
+      .navbar-brand:after {
+        content: "";
+        padding: 0 12px;
+        border-right: 1px solid #ccc; } }
+
+.Count {
+  background-color: #2e2e2e;
+  color: #ccc; }
+
+#custom-search-input {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0; }
+
+#custom-search-input .search-query {
+  padding-right: 3px;
+  padding-right: 4px \9;
+  padding-left: 3px;
+  padding-left: 4px \9;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
+
+#custom-search-input button {
+  border: 0;
+  background: none;
+  /** belows styles are working good */
+  padding: 2px 5px;
+  margin-top: 2px;
+  position: relative;
+  left: -28px;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
+
+.search-query:focus + button {
+  z-index: 3; }

@@ -34,14 +34,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-inverse navbar-fixed-top">
-          <div className="container-fluid">
+        <nav className="navbar navbar-fixed-top">
+          <div className="container-fluid Logo_block">
             <div className="navbar-header">
               <button
                 type="button"
                 className="navbar-toggle pull-left"
                 data-toggle="collapse"
-                data-target="#myNavbar"
+                data-target="#Cat_bar"
                 onClick={this.toggle}
               >
                 <span className="icon-bar" />
@@ -49,54 +49,105 @@ class App extends React.Component {
                 <span className="icon-bar" />
               </button>
 
-              <a className="navbar-brand" href="#">
+              <a className="navbar-brand" href="javascript:void(0)">
                 LOGO
               </a>
+              <button
+                type="button"
+                className="navbar-toggle pull-right"
+                data-toggle="collapse"
+                data-target="#User"
+                onClick={this.toggle}
+              >
+                <span className="glyphicon glyphicon-user" />
+              </button>
+
+              {/* <div id="nav-user-mobile-app">
+                <div className="dropdown nav-user-mobile-base visible-xs">
+                  123
+                </div>
+              </div> */}
             </div>
-            <div className="collapse navbar-collapse" id="myNavbar">
-              <ul className="nav navbar-nav">
-                <li className="active">
-                  <a href="#">Home</a>
-                </li>
-                <li className="dropdown">
-                  <a
-                    className="dropdown-toggle"
-                    data-toggle="dropdown"
-                    href="#"
-                  >
-                    Page 1 <span className="caret" />
+
+            <div className="collapse navbar-collapse" id="User">
+              <ul className="nav navbar-nav navbar-left">
+                <li>
+                  <a href="">
+                    <span className="glyphicon glyphicon-king" />
                   </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a href="#">Page 1-1</a>
-                    </li>
-                    <li>
-                      <a href="#">Page 1-2</a>
-                    </li>
-                    <li>
-                      <a href="#">Page 1-3</a>
-                    </li>
-                  </ul>
                 </li>
                 <li>
-                  <a href="#">Page 2</a>
-                </li>
-                <li>
-                  <a href="#">Page 3</a>
+                  <a href="">
+                    <span className="glyphicon glyphicon-search" />
+                  </a>
                 </li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 <li>
-                  <a href="#">
-                    <span className="glyphicon glyphicon-user" /> Sign Up
+                  <a href="">
+                    <span className="glyphicon glyphicon-user" />
+                  </a>
+                </li>
+
+                <li>
+                  <a href="">
+                    <span className="glyphicon glyphicon-ok" />
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <span className="glyphicon glyphicon-log-in" /> Login
+                    Inbox <span className="badge">42</span>
                   </a>
                 </li>
               </ul>
+            </div>
+          </div>
+
+          <div className="container-fluid Cat_bar_container">
+            <div className="collapse navbar-collapse" id="Cat_bar">
+              <ul className="nav navbar-nav">
+                <li className="active">
+                  <a href="">CAT1</a>
+                </li>
+
+                <li>
+                  <a href="">CAT2</a>
+                </li>
+                <li>
+                  <a href="">CAT3</a>
+                </li>
+                <li>
+                  <a href="">CAT4</a>
+                </li>
+                <li>
+                  <a href="">CAT5</a>
+                </li>
+                <li>
+                  <a href="">CAT6</a>
+                </li>
+                <li>
+                  <a href="">CAT7</a>
+                </li>
+                <li>
+                  <a href="">CAT8</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="container-fluid Count">
+            {/* <div className="" id="Cat_bar"> */}
+            <div className="row">
+              <div className="col-sm-4 col-xs-12">ALL</div>
+              <div className="col-sm-8 hidden-xs text-center">CAT2-1</div>
+            </div>
+          </div>
+          <div className="left">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-sm-4">search</div>
+                <div className="col-sm-8">content</div>
+              </div>
             </div>
           </div>
         </nav>
