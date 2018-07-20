@@ -1,23 +1,21 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+// import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import CommentBox from "components/CommentBox";
-import CommentList from "components/CommentList";
+// import CommentBox from "components/CommentBox";
+// import CommentList from "components/CommentList";
 import * as actions from "actions";
 
 // antd
-import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 import "../css/project.css";
-import { Layout, Menu, Icon } from "antd";
-const { Header, Sider, Content, Footer } = Layout;
 
-const sideStyle = {
-  position: "fixed",
-  top: 0,
-  left: 0,
-  right: 0
-};
-class App extends React.Component {
+// const sideStyle = {
+//   position: "fixed",
+//   top: 0,
+//   left: 0,
+//   right: 0
+// };
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +47,7 @@ class App extends React.Component {
                 <span className="icon-bar" />
               </button>
 
-              <a className="navbar-brand" href="javascript:void(0)">
+              <a className="navbar-brand" href="">
                 LOGO
               </a>
               <button
@@ -95,7 +93,7 @@ class App extends React.Component {
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="">
                     Inbox <span className="badge">42</span>
                   </a>
                 </li>
@@ -107,29 +105,56 @@ class App extends React.Component {
             <div className="collapse navbar-collapse" id="Cat_bar">
               <ul className="nav navbar-nav">
                 <li className="active">
-                  <a href="">CAT1</a>
+                  <a href="">CAT 1</a>
                 </li>
 
                 <li>
-                  <a href="">CAT2</a>
+                  <a href="">CAT 2</a>
                 </li>
                 <li>
-                  <a href="">CAT3</a>
+                  <a href="">CAT 3</a>
                 </li>
                 <li>
-                  <a href="">CAT4</a>
+                  <a href="">CAT 4</a>
                 </li>
                 <li>
-                  <a href="">CAT5</a>
+                  <a href="">CAT 5</a>
                 </li>
                 <li>
-                  <a href="">CAT6</a>
+                  <a href="">CAT 6</a>
                 </li>
                 <li>
-                  <a href="">CAT7</a>
+                  <a href="">CAT 7</a>
                 </li>
-                <li>
-                  <a href="">CAT8</a>
+                <li className="dropdown">
+                  <a
+                    className="dropdown-toggle"
+                    data-toggle="dropdown"
+                    href="#"
+                  >
+                    CAT 8
+                    <span className="caret" />
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a href="#">sub-cat 1</a>
+                    </li>
+                    <li>
+                      <a href="#">sub-cat 2</a>
+                    </li>
+                    <li>
+                      <a href="#">sub-cat 3</a>
+                    </li>
+                    <li>
+                      <a href="#">sub-cat 4</a>
+                    </li>
+                    <li>
+                      <a href="#">sub-cat 5</a>
+                    </li>
+                    <li>
+                      <a href="#">sub-cat 6</a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </div>
@@ -138,19 +163,35 @@ class App extends React.Component {
           <div className="container-fluid Count">
             {/* <div className="" id="Cat_bar"> */}
             <div className="row">
-              <div className="col-sm-4 col-xs-12">ALL</div>
-              <div className="col-sm-8 hidden-xs text-center">CAT2-1</div>
-            </div>
-          </div>
-          <div className="left">
-            <div className="container-fluid">
-              <div className="row">
-                <div className="col-sm-4">search</div>
-                <div className="col-sm-8">content</div>
-              </div>
+              <div className="col-sm-4 col-xs-12">ALL (210)</div>
+              <div className="col-sm-8 hidden-xs text-center">CAT 2-1</div>
             </div>
           </div>
         </nav>
+        <div className="content">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-sm-4 col-xs-12">
+                <form action="" className="search-form">
+                  <div className="form-group has-feedback">
+                    <label for="search" className="sr-only">
+                      Search
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="search"
+                      id="search"
+                      placeholder="search"
+                    />
+                    <span className="glyphicon glyphicon-search form-control-feedback" />
+                  </div>
+                </form>
+              </div>
+              <div className="col-sm-8 hidden-xs">content</div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
