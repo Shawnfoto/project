@@ -2,22 +2,68 @@
   font-family: "Noto Serif", serif;
   font-family: "Open Sans", sans-serif; }
 
+html {
+  font-size: 16px; }
+
+body {
+  overflow: hidden;
+  font-size: 1rem; }
+
+img {
+  display: block; }
+
+.list-group-item:first-child {
+  border-radius: 0; }
+
+.noPadding {
+  padding: 0; }
+
 a {
   color: #6c6868; }
 
 .navbar.navbar-fixed-top {
-  background-color: #ccc; }
+  background-color: white; }
   @media all and (min-width: 768px) {
     .navbar.navbar-fixed-top {
+      height: 102px;
       background-color: white; } }
 
+.navbar .control_bar #User_toggle {
+  margin: 0; }
+
+.navbar .navbar-nav .User_Status a {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.navbar .navbar-nav .User_Status .User_Icon:before {
+  display: inline-block;
+  content: "";
+  background-image: url("http://placehold.it/30x30");
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10px; }
+
+.navbar .navbar-nav .User_Status .User_Icon:after {
+  display: inline-block;
+  content: "USER";
+  vertical-align: middle; }
+
+.navbar .navbar-nav .bell a {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
 .navbar-toggle .icon-bar {
-  background-color: #fff; }
+  background-color: black; }
 
 .navbar-brand {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 1.5rem;
+  padding: 0;
+  line-height: 50px;
   color: #bc1212; }
   @media all and (min-width: 768px) {
     .navbar-brand {
@@ -25,14 +71,44 @@ a {
       transform: initial; }
       .navbar-brand:after {
         content: "";
-        padding: 0 12px;
+        padding: 0 15px;
         border-right: 1px solid #ccc; } }
 
-.Count {
-  padding-top: 5px;
-  padding-bottom: 5px;
+.MainTitle {
+  margin-top: 50px;
+  height: 35px;
+  line-height: 35px;
   background-color: #2e2e2e;
   color: #ccc; }
+  .MainTitle .CAT_Title:after {
+    content: "\002B";
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px; }
+  @media all and (min-width: 768px) {
+    .MainTitle {
+      margin-top: 102px; } }
+
+.Cat_bar .dropdown-menu {
+  min-width: auto; }
+
+.img {
+  vertical-align: top;
+  display: inline-block; }
+
+.TITLE_IMG_desc {
+  display: inline-block; }
+
+.info {
+  float: right; }
+  .info .unit {
+    text-align: right; }
+  .info .one {
+    display: inline-block; }
+  .info .two {
+    display: inline-block;
+    margin-left: 20px; }
 
 #custom-search-form {
   margin: 0;
@@ -67,5 +143,49 @@ a {
 .search-query:focus + button {
   z-index: 3; }
 
-.content {
-  margin-top: 130px; }
+#LeftList {
+  position: fixed;
+  top: 85px;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  overflow-y: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+  #LeftList .Status {
+    text-align: right;
+    white-space: nowrap; }
+  #LeftList .search-form {
+    padding: 2px 5px; }
+    #LeftList .search-form input {
+      border: 0;
+      border-radius: 0; }
+    #LeftList .search-form .glyphicon-search {
+      color: #c7c7c7; }
+  @media all and (min-width: 768px) {
+    #LeftList {
+      top: 137px; } }
+  #LeftList .form-group {
+    margin: 0; }
+
+#RightList {
+  position: fixed;
+  top: 135px;
+  bottom: 0;
+  right: 0;
+  padding: 0; }
+  #RightList header {
+    position: -webkit-sticky;
+    position: sticky;
+    height: 182px;
+    background-color: #f1f1f1; }
+  #RightList .content {
+    position: absolute;
+    overflow: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 150px; }
+    @media all and (min-width: 768px) {
+      #RightList .content {
+        top: 138px; } }

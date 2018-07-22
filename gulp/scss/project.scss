@@ -1,25 +1,69 @@
 @import "fonts.scss";
+@import "index.scss";
 @import "media-queries.scss";
 a {
   color: #6c6868;
 }
 .navbar {
   &.navbar-fixed-top {
-    background-color: #ccc;
+    // height: 102px;
+    background-color: white;
     @include desktop {
+      height: 102px;
       background-color: white;
+    }
+  }
+  .control_bar {
+    #User_toggle {
+      margin: 0;
+    }
+  }
+  .navbar-nav {
+    // profile
+    .User_Status {
+      a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .User_Icon {
+        &:before {
+          display: inline-block;
+          content: "";
+          background-image: url("http://placehold.it/30x30");
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          vertical-align: middle;
+          margin-right: 10px;
+          // margin-right: 5px;
+        }
+        &:after {
+          display: inline-block;
+          content: "USER";
+          vertical-align: middle;
+        }
+      }
+    }
+    .bell {
+      a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
     }
   }
 }
 .navbar-toggle {
   .icon-bar {
-    background-color: #fff;
+    background-color: black;
   }
 }
 .navbar-brand {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 1.5rem;
+  padding: 0;
+  line-height: 50px;
   color: #bc1212;
 
   @include desktop {
@@ -27,27 +71,60 @@ a {
     transform: initial;
     &:after {
       content: "";
-      padding: 0 12px;
+      padding: 0 15px;
       border-right: 1px solid #ccc;
     }
   }
 }
 
-.Count {
-  padding-top: 5px;
-  padding-bottom: 5px;
-
+.MainTitle {
+  margin-top: 50px;
+  height: 35px;
+  line-height: 35px;
   background-color: #2e2e2e;
   color: #ccc;
-  // .col-sm-8 {
-  //   display: none;
-  //   @include desktop {
-  //     display: block;
-  //   }
-  // }
-}
-// search bar
 
+  .CAT_Title {
+    &:after {
+      content: "\002B";
+      color: white;
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+    }
+  }
+  @include desktop {
+    margin-top: 102px;
+  }
+}
+.Cat_bar {
+  .dropdown-menu {
+    min-width: auto;
+  }
+}
+.img {
+  vertical-align: top;
+  display: inline-block;
+}
+.TITLE_IMG_desc {
+  display: inline-block;
+}
+// contentTITLE
+.info {
+  float: right;
+  .unit {
+    text-align: right;
+  }
+  .one {
+    display: inline-block;
+  }
+  .two {
+    display: inline-block;
+    margin-left: 20px;
+  }
+}
+
+// Search bar
 #custom-search-form {
   margin: 0;
   margin-top: 5px;
@@ -85,7 +162,68 @@ a {
 .search-query:focus + button {
   z-index: 3;
 }
+// 內容
 
-.content {
-  margin-top: 130px;
+#LeftList {
+  position: fixed;
+  top: 85px;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  overflow-y: auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  .Status {
+    text-align: right;
+    white-space: nowrap;
+    // .row {
+    //   &.noPadding > div {
+    //     padding: 0;
+    //   }
+    // }
+  }
+  .search-form {
+    padding: 2px 5px;
+    input {
+      border: 0;
+      border-radius: 0;
+    }
+    .glyphicon-search {
+      color: #c7c7c7;
+    }
+  }
+  @include desktop {
+    top: 137px;
+  }
+  .form-group {
+    margin: 0;
+  }
+}
+
+#RightList {
+  position: fixed;
+  top: 135px;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+
+  // background-color: #f1f1f1;
+  // overflow-y: auto;
+  header {
+    position: -webkit-sticky;
+    position: sticky;
+    height: 182px;
+    background-color: #f1f1f1;
+  }
+  .content {
+    position: absolute;
+    overflow: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 150px;
+    @include desktop {
+      top: 138px;
+    }
+  }
 }

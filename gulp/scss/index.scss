@@ -1,0 +1,18 @@
+html {
+  font-size: 16px;
+}
+body {
+  overflow: hidden;
+  font-size: 1rem;
+  // background-color: #f1f1f1;
+}
+img {
+  display: block;
+}
+.list-group-item:first-child {
+  border-radius: 0;
+}
+
+.noPadding {
+  padding: 0;
+}
