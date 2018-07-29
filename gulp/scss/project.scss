@@ -1,229 +1,325 @@
 @import "fonts.scss";
 @import "index.scss";
 @import "media-queries.scss";
-a {
-  color: #6c6868;
-}
-.navbar {
-  &.navbar-fixed-top {
-    // height: 102px;
-    background-color: white;
-    @include desktop {
-      height: 102px;
-      background-color: white;
-    }
-  }
-  .control_bar {
-    #User_toggle {
-      margin: 0;
-    }
-  }
-  .navbar-nav {
-    // profile
-    .User_Status {
-      a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-      .User_Icon {
-        &:before {
-          display: inline-block;
-          content: "";
-          background-image: url("http://placehold.it/30x30");
-          height: 30px;
-          width: 30px;
-          border-radius: 50%;
-          vertical-align: middle;
-          margin-right: 10px;
-          // margin-right: 5px;
-        }
-        &:after {
-          display: inline-block;
-          content: "USER";
-          vertical-align: middle;
-        }
-      }
-    }
-    .bell {
-      a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-      }
-    }
-  }
-}
-.navbar-toggle {
-  .icon-bar {
-    background-color: black;
-  }
-}
-.navbar-brand {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  padding: 0;
-  line-height: 50px;
-  color: #bc1212;
 
-  @include desktop {
-    position: static;
-    transform: initial;
-    &:after {
-      content: "";
-      padding: 0 15px;
-      border-right: 1px solid #ccc;
-    }
-  }
-}
+// a {
+//   color: #6c6868;
+// }
+// .navbar {
+//   &.navbar-fixed-top {
+//     // height: 102px;
+//     background-color: white;
+//     @include desktop {
+//       height: 102px;
+//       background-color: white;
+//     }
+//   }
+//   .control_bar {
+//     #User_toggle {
+//       margin: 0;
+//     }
+//   }
+//   .navbar-nav {
+//     // profile
+//     .User_Status {
+//       a {
+//         padding-top: 10px;
+//         padding-bottom: 10px;
+//       }
+//       .User_Icon {
+//         &:before {
+//           display: inline-block;
+//           content: "";
+//           background-image: url("http://placehold.it/30x30");
+//           height: 30px;
+//           width: 30px;
+//           border-radius: 50%;
+//           vertical-align: middle;
+//           margin-right: 10px;
+//           // margin-right: 5px;
+//         }
+//         &:after {
+//           display: inline-block;
+//           content: "USER";
+//           vertical-align: middle;
+//         }
+//       }
+//     }
+//     .bell {
+//       a {
+//         padding-top: 10px;
+//         padding-bottom: 10px;
+//       }
+//     }
+//   }
+// }
+// .navbar-toggle {
+//   .icon-bar {
+//     background-color: black;
+//   }
+// }
+// .navbar-brand {
+//   position: absolute;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   font-size: 1.5rem;
+//   padding: 0;
+//   line-height: 50px;
+//   color: #bc1212;
 
-.MainTitle {
-  margin-top: 50px;
-  height: 35px;
-  line-height: 35px;
-  background-color: #2e2e2e;
-  color: #ccc;
+//   @include desktop {
+//     position: static;
+//     transform: initial;
+//     &:after {
+//       content: "";
+//       padding: 0 15px;
+//       border-right: 1px solid #ccc;
+//     }
+//   }
+// }
 
-  .CAT_Title {
-    &:after {
-      content: "\002B";
-      color: white;
-      font-weight: bold;
-      float: right;
-      margin-left: 5px;
-    }
-  }
-  @include desktop {
-    margin-top: 102px;
+// .MainTitle {
+//   margin-top: 50px;
+//   height: 35px;
+//   line-height: 35px;
+//   background-color: #2e2e2e;
+//   color: #ccc;
+
+//   .CAT_Title {
+//     &:after {
+//       content: "\002B";
+//       color: white;
+//       font-weight: bold;
+//       float: right;
+//       margin-left: 5px;
+//     }
+//   }
+//   @include desktop {
+//     margin-top: 102px;
+//   }
+// }
+// .Cat_bar {
+//   .dropdown-menu {
+//     min-width: auto;
+//   }
+// }
+// .img {
+//   vertical-align: top;
+//   display: inline-block;
+// }
+// .TITLE_IMG_desc {
+//   display: inline-block;
+// }
+// // contentTITLE
+// .info {
+//   float: right;
+//   .unit {
+//     text-align: right;
+//   }
+//   .one {
+//     display: inline-block;
+//   }
+//   .two {
+//     display: inline-block;
+//     margin-left: 20px;
+//   }
+// }
+
+// // Search bar
+// #custom-search-form {
+//   margin: 0;
+//   margin-top: 5px;
+//   padding: 0;
+// }
+
+// #custom-search-form .search-query {
+//   padding-right: 3px;
+//   padding-right: 4px \9;
+//   padding-left: 3px;
+//   padding-left: 4px \9;
+//   /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+//   margin-bottom: 0;
+//   -webkit-border-radius: 3px;
+//   -moz-border-radius: 3px;
+//   border-radius: 3px;
+// }
+
+// #custom-search-form button {
+//   border: 0;
+//   background: none;
+//   /** belows styles are working good */
+//   padding: 2px 5px;
+//   margin-top: 2px;
+//   position: relative;
+//   left: -28px;
+//   /* IE7-8 doesn't have border-radius, so don't indent the padding */
+//   margin-bottom: 0;
+//   -webkit-border-radius: 3px;
+//   -moz-border-radius: 3px;
+//   border-radius: 3px;
+// }
+
+// .search-query:focus + button {
+//   z-index: 3;
+// }
+// // 內容
+
+// #LeftList {
+//   position: fixed;
+//   top: 85px;
+//   bottom: 0;
+//   left: 0;
+//   padding: 0;
+//   overflow-y: auto;
+//   white-space: nowrap;
+//   text-overflow: ellipsis;
+//   .Status {
+//     text-align: right;
+//     white-space: nowrap;
+//     // .row {
+//     //   &.noPadding > div {
+//     //     padding: 0;
+//     //   }
+//     // }
+//   }
+//   .search-form {
+//     padding: 2px 5px;
+//     input {
+//       border: 0;
+//       border-radius: 0;
+//     }
+//     .glyphicon-search {
+//       color: #c7c7c7;
+//     }
+//   }
+//   @include desktop {
+//     top: 137px;
+//   }
+//   .form-group {
+//     margin: 0;
+//   }
+// }
+
+// #RightList {
+//   position: fixed;
+//   top: 135px;
+//   bottom: 0;
+//   right: 0;
+//   padding: 0;
+
+//   // background-color: #f1f1f1;
+//   // overflow-y: auto;
+//   header {
+//     position: -webkit-sticky;
+//     position: sticky;
+//     height: 182px;
+//     background-color: #f1f1f1;
+//   }
+//   .content {
+//     position: absolute;
+//     overflow: auto;
+//     bottom: 0;
+//     right: 0;
+//     left: 0;
+//     top: 150px;
+//     @include desktop {
+//       top: 138px;
+//     }
+//   }
+// }
+// #root {
+//   .header {
+//     position: relative;
+//     height: 64px;
+//     @include Hamburger;
+
+//     .logo {
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       // transform: translateX(-50%);
+//       transform: translate(-50%, -50%);
+//     }
+//     .user {
+//       float: right;
+//       position: relative;
+//       top: 50%;
+//       transform: translate(0, -50%);
+//       .user-image {
+//         border-radius: 50%;
+//       }
+//     }
+//   }
+// }
+@mixin icon-middle {
+  .icon-middle {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
-.Cat_bar {
-  .dropdown-menu {
-    min-width: auto;
-  }
-}
-.img {
-  vertical-align: top;
-  display: inline-block;
-}
-.TITLE_IMG_desc {
-  display: inline-block;
-}
-// contentTITLE
-.info {
-  float: right;
-  .unit {
-    text-align: right;
-  }
-  .one {
+@mixin dropdown-customize {
+  .dropdown {
     display: inline-block;
   }
-  .two {
-    display: inline-block;
-    margin-left: 20px;
-  }
-}
-
-// Search bar
-#custom-search-form {
-  margin: 0;
-  margin-top: 5px;
-  padding: 0;
-}
-
-#custom-search-form .search-query {
-  padding-right: 3px;
-  padding-right: 4px \9;
-  padding-left: 3px;
-  padding-left: 4px \9;
-  /* IE7-8 doesn't have border-radius, so don't indent the padding */
-
-  margin-bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-#custom-search-form button {
-  border: 0;
-  background: none;
-  /** belows styles are working good */
-  padding: 2px 5px;
-  margin-top: 2px;
-  position: relative;
-  left: -28px;
-  /* IE7-8 doesn't have border-radius, so don't indent the padding */
-  margin-bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.search-query:focus + button {
-  z-index: 3;
-}
-// 內容
-
-#LeftList {
-  position: fixed;
-  top: 85px;
-  bottom: 0;
-  left: 0;
-  padding: 0;
-  overflow-y: auto;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  .Status {
-    text-align: right;
-    white-space: nowrap;
-    // .row {
-    //   &.noPadding > div {
-    //     padding: 0;
-    //   }
-    // }
-  }
-  .search-form {
-    padding: 2px 5px;
-    input {
-      border: 0;
-      border-radius: 0;
-    }
-    .glyphicon-search {
-      color: #c7c7c7;
+  .dropdown-toggle {
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    background-color: transparent;
+    color: black;
+    &:after {
+      vertical-align: 0;
     }
   }
-  @include desktop {
-    top: 137px;
-  }
-  .form-group {
-    margin: 0;
-  }
 }
+.ant-avatar {
+  display: inline;
+}
+$header-line-height: 48px;
+#root {
+  .header {
+    line-height: $header-line-height;
+    .navbar-brand {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      @include desktop {
+        position: initial;
+        transform: initial;
+      }
+    }
+    .user-images {
+      display: inline-block;
+      vertical-align: middle;
+      img {
+        border-radius: 50%;
+      }
+    }
+    .user-toggle {
+      display: inline-block;
+      vertical-align: middle;
 
-#RightList {
-  position: fixed;
-  top: 135px;
-  bottom: 0;
-  right: 0;
-  padding: 0;
-
-  // background-color: #f1f1f1;
-  // overflow-y: auto;
-  header {
-    position: -webkit-sticky;
-    position: sticky;
-    height: 182px;
-    background-color: #f1f1f1;
+      .user-name {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+      }
+      @include dropdown-customize;
+    }
+    .checkbox-middle {
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+      @include icon-middle;
+    }
   }
-  .content {
+  .sub-header {
     position: absolute;
-    overflow: auto;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 150px;
+    top: 0;
     @include desktop {
-      top: 138px;
+      position: initial;
     }
   }
 }

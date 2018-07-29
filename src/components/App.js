@@ -8,8 +8,9 @@ import * as actions from "actions";
 // antd
 import "antd/dist/antd.css";
 import "../css/project.css";
-import { Layout, Menu, Icon, Breadcrumb } from "antd";
-const { Header, Content, Footer, Sider } = Layout;
+import { Avatar, Badge, Icon } from "antd";
+// import { Layout, Menu, Icon, Breadcrumb } from "antd";
+// const { Header, Content, Footer, Sider } = Layout;
 // const sideStyle = {
 //   position: "fixed",
 //   top: 0,
@@ -17,100 +18,140 @@ const { Header, Content, Footer, Sider } = Layout;
 //   right: 0
 // };
 
+// bs
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      collapsed: false
+      collapsed: false,
+      sub_collapsed: false,
+      dropdownOpen: false
     };
     this.toggle = this.toggle.bind(this);
+    this.sub_toggle = this.sub_toggle.bind(this);
+    this.dropdown_toggle = this.dropdown_toggle.bind(this);
   }
-  toggle(collapsed) {
-    console.log(collapsed);
+  toggle() {
     this.setState({ collapsed: !this.state.collapsed });
+  }
+  sub_toggle() {
+    this.setState({ sub_collapsed: !this.state.sub_collapsed });
+  }
+  dropdown_toggle(e) {
+    e.preventDefault();
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
   }
   render() {
     return (
       <div>
-        <Layout>
-          <Sider
-            trigger={null}
-            breakpoint="lg"
-            collapsedWidth="0"
-            collapsible
-            collapsed={this.state.collapsed}
-            onCollapse={(collapsed, type) => {
-              this.toggle(collapsed);
-              console.log("collapsed", collapsed);
-            }}
-          >
-            <div className="logo" />
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-              <Menu.Item key="1">
-                <Icon type="user" />
-                <span className="nav-text">test nav 1</span>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <Icon type="video-camera" />
-                <span className="nav-text">nav 2</span>
-              </Menu.Item>
-              <Menu.Item key="3">
-                <Icon type="upload" />
-                <span className="nav-text">nav 3</span>
-              </Menu.Item>
-              <Menu.Item key="4">
-                <Icon type="user" />
-                <span className="nav-text">nav 4</span>
-              </Menu.Item>
-              <Menu.Item key="5">
-                <Icon type="heart-o" />
-                <span className="nav-text">nav 5</span>
-              </Menu.Item>
-              <Menu.Item key="6">
-                <Icon type="team" />
-                <span className="nav-text">nav 6</span>
-              </Menu.Item>
-            </Menu>
-          </Sider>
+        <div className="header">
+          <Navbar color="light" light expand="md">
+            <NavbarBrand href="/">LOGO</NavbarBrand>
 
-          <Layout>
-            <Header style={{ background: "#fff", padding: 0 }}>
-              <Icon
-                className="trigger"
-                type={this.state.collapsed ? "bars" : "close"}
-                onClick={this.toggle}
-              />
-            </Header>
-            {/* <Header className="header">
-            <div className="logo" />
-            <Menu
-              theme="dark"
-              mode="horizontal"
-              defaultSelectedKeys={['2']}
-              style={{ lineHeight: '64px' }}
-            >
-              <Menu.Item key="1">nav 1</Menu.Item>
-              <Menu.Item key="2">nav 2</Menu.Item>
-              <Menu.Item key="3">nav 3</Menu.Item>
-            </Menu>
-          </Header> */}
+            <NavbarToggler onClick={this.toggle} />
 
-            <Content style={{ margin: "0 16px" }}>
-              <Breadcrumb style={{ margin: "12px 0" }}>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
-              </Breadcrumb>
-              <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
-                content
-              </div>
-            </Content>
-            <Footer style={{ textAlign: "center" }}>
-              Ant Design ©2016 Created by Ant UED
-            </Footer>
-          </Layout>
-        </Layout>
+            <Collapse isOpen={this.state.collapsed} navbar>
+              <Nav className="mr-auto" navbar>
+                <NavItem>
+                  <NavLink href="/">fire</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/">search</NavLink>
+                </NavItem>
+              </Nav>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink href="/">
+                    {/* <div className="user-images">
+                    <img src="http://placehold.it/28x28" />
+                  </div> */}
+
+                    <Dropdown
+                      className="user-toggle"
+                      isOpen={this.state.dropdownOpen}
+                      toggle={this.dropdown_toggle}
+                    >
+                      <DropdownToggle caret>
+                        <span className="user-images">
+                          <img src="http://placehold.it/28x28" />
+                        </span>
+                        <div className="user-name">USER</div>
+                      </DropdownToggle>
+                      <DropdownMenu>
+                        <DropdownItem header>Header</DropdownItem>
+                        <DropdownItem disabled>Action</DropdownItem>
+                        <DropdownItem>Another Action</DropdownItem>
+                        <DropdownItem divider />
+                        <DropdownItem>Another Action</DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                    {/* </div> */}
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="checkbox-middle" href="/components/">
+                    <i className="far fa-check-square icon-middle" />
+                  </NavLink>
+                </NavItem>
+
+                {/* <NavItem>
+                  <NavLink className="checkbox-middle" href="/components/">
+                    <i class="far fa-bell icon-middle" />
+                  </NavLink>
+                </NavItem> */}
+                <li className="nav-item bell">
+                  <a className="nav-link" href="/">
+                    <span style={{ marginRight: 24 }}>
+                      <Badge count={3}>
+                        <Avatar
+                          style={{
+                            color: "black",
+                            backgroundColor: "transparent"
+                          }}
+                          shape="circle"
+                          icon="bell"
+                        />
+                      </Badge>
+                    </span>
+                  </a>
+                </li>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </div>
+        <div className="sub-header">
+          <Navbar color="light" light expand="md">
+            <NavbarToggler onClick={this.sub_toggle} />
+            <Collapse isOpen={this.state.sub_collapsed} navbar>
+              <Nav className="mr-auto" navbar>
+                <NavItem>
+                  <NavLink href="/components/">CAT 1</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/components/">CAT 2</NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </div>
       </div>
     );
   }

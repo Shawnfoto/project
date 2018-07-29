@@ -6,10 +6,10 @@ html {
   font-size: 16px; }
 
 body {
-  overflow: hidden;
   font-size: 1rem; }
 
 img {
+  width: 100%;
   display: block; }
 
 .list-group-item:first-child {
@@ -18,174 +18,58 @@ img {
 .noPadding {
   padding: 0; }
 
-a {
-  color: #6c6868; }
+.ant-avatar {
+  display: inline; }
 
-.navbar.navbar-fixed-top {
-  background-color: white; }
-  @media all and (min-width: 768px) {
-    .navbar.navbar-fixed-top {
-      height: 102px;
-      background-color: white; } }
-
-.navbar .control_bar #User_toggle {
-  margin: 0; }
-
-.navbar .navbar-nav .User_Status a {
-  padding-top: 10px;
-  padding-bottom: 10px; }
-
-.navbar .navbar-nav .User_Status .User_Icon:before {
-  display: inline-block;
-  content: "";
-  background-image: url("http://placehold.it/30x30");
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  vertical-align: middle;
-  margin-right: 10px; }
-
-.navbar .navbar-nav .User_Status .User_Icon:after {
-  display: inline-block;
-  content: "USER";
-  vertical-align: middle; }
-
-.navbar .navbar-nav .bell a {
-  padding-top: 10px;
-  padding-bottom: 10px; }
-
-.navbar-toggle .icon-bar {
-  background-color: black; }
-
-.navbar-brand {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  padding: 0;
-  line-height: 50px;
-  color: #bc1212; }
-  @media all and (min-width: 768px) {
-    .navbar-brand {
-      position: static;
-      transform: initial; }
-      .navbar-brand:after {
-        content: "";
-        padding: 0 15px;
-        border-right: 1px solid #ccc; } }
-
-.MainTitle {
-  margin-top: 50px;
-  height: 35px;
-  line-height: 35px;
-  background-color: #2e2e2e;
-  color: #ccc; }
-  .MainTitle .CAT_Title:after {
-    content: "\002B";
-    color: white;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px; }
-  @media all and (min-width: 768px) {
-    .MainTitle {
-      margin-top: 102px; } }
-
-.Cat_bar .dropdown-menu {
-  min-width: auto; }
-
-.img {
-  vertical-align: top;
-  display: inline-block; }
-
-.TITLE_IMG_desc {
-  display: inline-block; }
-
-.info {
-  float: right; }
-  .info .unit {
-    text-align: right; }
-  .info .one {
-    display: inline-block; }
-  .info .two {
+#root .header {
+  line-height: 48px; }
+  #root .header .navbar-brand {
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); }
+    @media (min-width: 768px) {
+      #root .header .navbar-brand {
+        position: initial;
+        -webkit-transform: initial;
+                transform: initial; } }
+  #root .header .user-images {
     display: inline-block;
-    margin-left: 20px; }
-
-#custom-search-form {
-  margin: 0;
-  margin-top: 5px;
-  padding: 0; }
-
-#custom-search-form .search-query {
-  padding-right: 3px;
-  padding-right: 4px \9;
-  padding-left: 3px;
-  padding-left: 4px \9;
-  /* IE7-8 doesn't have border-radius, so don't indent the padding */
-  margin-bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px; }
-
-#custom-search-form button {
-  border: 0;
-  background: none;
-  /** belows styles are working good */
-  padding: 2px 5px;
-  margin-top: 2px;
-  position: relative;
-  left: -28px;
-  /* IE7-8 doesn't have border-radius, so don't indent the padding */
-  margin-bottom: 0;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px; }
-
-.search-query:focus + button {
-  z-index: 3; }
-
-#LeftList {
-  position: fixed;
-  top: 85px;
-  bottom: 0;
-  left: 0;
-  padding: 0;
-  overflow-y: auto;
-  white-space: nowrap;
-  text-overflow: ellipsis; }
-  #LeftList .Status {
-    text-align: right;
-    white-space: nowrap; }
-  #LeftList .search-form {
-    padding: 2px 5px; }
-    #LeftList .search-form input {
+    vertical-align: middle; }
+    #root .header .user-images img {
+      border-radius: 50%; }
+  #root .header .user-toggle {
+    display: inline-block;
+    vertical-align: middle; }
+    #root .header .user-toggle .user-name {
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 10px; }
+    #root .header .user-toggle .dropdown {
+      display: inline-block; }
+    #root .header .user-toggle .dropdown-toggle {
+      outline: 0;
       border: 0;
-      border-radius: 0; }
-    #LeftList .search-form .glyphicon-search {
-      color: #c7c7c7; }
-  @media all and (min-width: 768px) {
-    #LeftList {
-      top: 137px; } }
-  #LeftList .form-group {
-    margin: 0; }
+      -webkit-box-shadow: none;
+              box-shadow: none;
+      padding: 0;
+      background-color: transparent;
+      color: black; }
+      #root .header .user-toggle .dropdown-toggle:after {
+        vertical-align: 0; }
+  #root .header .checkbox-middle {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%; }
+    #root .header .checkbox-middle .icon-middle {
+      display: inline-block;
+      vertical-align: middle; }
 
-#RightList {
-  position: fixed;
-  top: 135px;
-  bottom: 0;
-  right: 0;
-  padding: 0; }
-  #RightList header {
-    position: -webkit-sticky;
-    position: sticky;
-    height: 182px;
-    background-color: #f1f1f1; }
-  #RightList .content {
-    position: absolute;
-    overflow: auto;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 150px; }
-    @media all and (min-width: 768px) {
-      #RightList .content {
-        top: 138px; } }
+#root .sub-header {
+  position: absolute;
+  top: 0; }
+  @media (min-width: 768px) {
+    #root .sub-header {
+      position: initial; } }
+
+/*# sourceMappingURL=project.css.map */
