@@ -26,13 +26,14 @@ img {
   #root .header .navbar-brand {
     position: relative;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%); }
+    transform: translateX(-50%); }
     @media (min-width: 768px) {
       #root .header .navbar-brand {
         position: initial;
-        -webkit-transform: initial;
-                transform: initial; } }
+        transform: initial; } }
+  #root .header .navbar-toggler {
+    border: 0;
+    outline: 0; }
   #root .header .user-images {
     display: inline-block;
     vertical-align: middle; }
@@ -50,13 +51,12 @@ img {
     #root .header .user-toggle .dropdown-toggle {
       outline: 0;
       border: 0;
-      -webkit-box-shadow: none;
-              box-shadow: none;
+      box-shadow: none;
       padding: 0;
       background-color: transparent;
       color: black; }
       #root .header .user-toggle .dropdown-toggle:after {
-        vertical-align: 0; }
+        vertical-align: middle; }
   #root .header .checkbox-middle {
     display: inline-block;
     vertical-align: middle;
@@ -71,5 +71,3 @@ img {
   @media (min-width: 768px) {
     #root .sub-header {
       position: initial; } }
-
-/*# sourceMappingURL=project.css.map */

@@ -252,6 +252,12 @@
 //     }
 //   }
 // }
+@mixin navbar-toggler {
+  .navbar-toggler {
+    border: 0;
+    outline: 0;
+  }
+}
 @mixin icon-middle {
   .icon-middle {
     display: inline-block;
@@ -270,7 +276,7 @@
     background-color: transparent;
     color: black;
     &:after {
-      vertical-align: 0;
+      vertical-align: middle;
     }
   }
 }
@@ -290,6 +296,7 @@ $header-line-height: 48px;
         transform: initial;
       }
     }
+    @include navbar-toggler;
     .user-images {
       display: inline-block;
       vertical-align: middle;

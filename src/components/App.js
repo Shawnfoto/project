@@ -66,7 +66,18 @@ class App extends Component {
           <Navbar color="light" light expand="md">
             <NavbarBrand href="/">LOGO</NavbarBrand>
 
-            <NavbarToggler onClick={this.toggle} />
+            {/* <NavbarToggler onClick={this.toggle} /> */}
+
+            <button
+              className="navbar-toggler"
+              type="button"
+              onClick={this.toggle}
+            >
+              {/* <span className="navbar-toggler-icon" /> */}
+              <span className="user-images">
+                <img src="http://placehold.it/28x28" />
+              </span>
+            </button>
 
             <Collapse isOpen={this.state.collapsed} navbar>
               <Nav className="mr-auto" navbar>
