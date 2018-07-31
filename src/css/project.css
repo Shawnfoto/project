@@ -23,14 +23,6 @@ img {
 
 #root .header {
   line-height: 48px; }
-  #root .header .navbar-brand {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%); }
-    @media (min-width: 768px) {
-      #root .header .navbar-brand {
-        position: initial;
-        transform: initial; } }
   #root .header .navbar-toggler {
     border: 0;
     outline: 0; }
@@ -65,9 +57,15 @@ img {
       display: inline-block;
       vertical-align: middle; }
 
-#root .sub-header {
-  position: absolute;
-  top: 0; }
-  @media (min-width: 768px) {
-    #root .sub-header {
-      position: initial; } }
+#root .sub-header .nav-tabs {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  border: 0; }
+
+#root .sub-header .nav-item {
+  display: inline-block;
+  margin: 0; }
+  #root .sub-header .nav-item .nav-link.active {
+    border: 0;
+    border-bottom: 3px solid red; }

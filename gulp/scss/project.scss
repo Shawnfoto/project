@@ -287,15 +287,15 @@ $header-line-height: 48px;
 #root {
   .header {
     line-height: $header-line-height;
-    .navbar-brand {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-      @include desktop {
-        position: initial;
-        transform: initial;
-      }
-    }
+    // .navbar-brand {
+    //   position: relative;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    //   @include desktop {
+    //     position: initial;
+    //     transform: initial;
+    //   }
+    // }
     @include navbar-toggler;
     .user-images {
       display: inline-block;
@@ -323,10 +323,21 @@ $header-line-height: 48px;
     }
   }
   .sub-header {
-    position: absolute;
-    top: 0;
-    @include desktop {
-      position: initial;
+    .nav-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      border: 0;
+    }
+    .nav-item {
+      display: inline-block;
+      margin: 0;
+      .nav-link {
+        &.active {
+          border: 0;
+          border-bottom: 3px solid red;
+        }
+      }
     }
   }
 }

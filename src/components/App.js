@@ -64,20 +64,19 @@ class App extends Component {
       <div>
         <div className="header">
           <Navbar color="light" light expand="md">
+            <NavbarToggler onClick={this.toggle} />
             <NavbarBrand href="/">LOGO</NavbarBrand>
 
-            {/* <NavbarToggler onClick={this.toggle} /> */}
-
-            <button
+            {/* <button
               className="navbar-toggler"
               type="button"
               onClick={this.toggle}
             >
-              {/* <span className="navbar-toggler-icon" /> */}
+              
               <span className="user-images">
                 <img src="http://placehold.it/28x28" />
               </span>
-            </button>
+            </button> */}
 
             <Collapse isOpen={this.state.collapsed} navbar>
               <Nav className="mr-auto" navbar>
@@ -88,80 +87,120 @@ class App extends Component {
                   <NavLink href="/">search</NavLink>
                 </NavItem>
               </Nav>
-              <Nav className="ml-auto" navbar>
-                <NavItem>
-                  <NavLink href="/">
-                    {/* <div className="user-images">
-                    <img src="http://placehold.it/28x28" />
-                  </div> */}
-
-                    <Dropdown
-                      className="user-toggle"
-                      isOpen={this.state.dropdownOpen}
-                      toggle={this.dropdown_toggle}
-                    >
-                      <DropdownToggle caret>
-                        <span className="user-images">
-                          <img src="http://placehold.it/28x28" />
-                        </span>
-                        <div className="user-name">USER</div>
-                      </DropdownToggle>
-                      <DropdownMenu>
-                        <DropdownItem header>Header</DropdownItem>
-                        <DropdownItem disabled>Action</DropdownItem>
-                        <DropdownItem>Another Action</DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>Another Action</DropdownItem>
-                      </DropdownMenu>
-                    </Dropdown>
-                    {/* </div> */}
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink className="checkbox-middle" href="/components/">
-                    <i className="far fa-check-square icon-middle" />
-                  </NavLink>
-                </NavItem>
-
-                {/* <NavItem>
-                  <NavLink className="checkbox-middle" href="/components/">
-                    <i class="far fa-bell icon-middle" />
-                  </NavLink>
-                </NavItem> */}
-                <li className="nav-item bell">
-                  <a className="nav-link" href="/">
-                    <span style={{ marginRight: 24 }}>
-                      <Badge count={3}>
-                        <Avatar
-                          style={{
-                            color: "black",
-                            backgroundColor: "transparent"
-                          }}
-                          shape="circle"
-                          icon="bell"
-                        />
-                      </Badge>
-                    </span>
-                  </a>
-                </li>
-              </Nav>
             </Collapse>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/">
+                  <Dropdown
+                    className="user-toggle"
+                    isOpen={this.state.dropdownOpen}
+                    toggle={this.dropdown_toggle}
+                  >
+                    <DropdownToggle caret>
+                      <span className="user-images">
+                        <img src="http://placehold.it/28x28" />
+                      </span>
+                      <div className="user-name">USER</div>
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem header>Header</DropdownItem>
+                      <DropdownItem disabled>Action</DropdownItem>
+                      <DropdownItem>Another Action</DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem>Another Action</DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown>
+                  {/* </div> */}
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink className="checkbox-middle" href="/components/">
+                  <i className="far fa-check-square icon-middle" />
+                </NavLink>
+              </NavItem>
+
+              <li className="nav-item bell">
+                <a className="nav-link" href="/">
+                  <span style={{ marginRight: 24 }}>
+                    <Badge count={3}>
+                      <Avatar
+                        style={{
+                          color: "black",
+                          backgroundColor: "transparent"
+                        }}
+                        shape="circle"
+                        icon="bell"
+                      />
+                    </Badge>
+                  </span>
+                </a>
+              </li>
+            </Nav>
           </Navbar>
         </div>
         <div className="sub-header">
-          <Navbar color="light" light expand="md">
-            <NavbarToggler onClick={this.sub_toggle} />
-            <Collapse isOpen={this.state.sub_collapsed} navbar>
-              <Nav className="mr-auto" navbar>
-                <NavItem>
-                  <NavLink href="/components/">CAT 1</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/components/">CAT 2</NavLink>
-                </NavItem>
-              </Nav>
-            </Collapse>
-          </Navbar>
+          {/* <Navbar color="light" light expand="md"> */}
+          {/* <NavbarToggler onClick={this.sub_toggle} /> */}
+          {/* <Collapse isOpen={this.state.sub_collapsed} navbar> */}
+          <ul className="nav nav-tabs">
+            <li className="nav-item">
+              <a className="nav-link active" href="/">
+                Active
+              </a>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                href="/"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <div className="dropdown-menu">
+                <a className="dropdown-item" href="/">
+                  Action
+                </a>
+                <a className="dropdown-item" href="/">
+                  Another action
+                </a>
+                <a className="dropdown-item" href="/">
+                  Something else here
+                </a>
+                <div className="dropdown-divider" />
+                <a className="dropdown-item" href="/">
+                  Separated link
+                </a>
+              </div>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Link
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Link
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/">
+                Link
+              </a>
+            </li>
+          </ul>
+          {/* <Nav className="mr-auto" navbar>
+              <NavItem>
+                <NavLink href="/components/">CAT 1</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/components/">CAT 2</NavLink>
+              </NavItem>
+            </Nav> */}
+          {/* </Collapse> */}
+          {/* </Navbar> */}
         </div>
       </div>
     );
