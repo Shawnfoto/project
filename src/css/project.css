@@ -26,6 +26,22 @@ img {
   #root .header .navbar-toggler {
     border: 0;
     outline: 0; }
+  #root .header .header-collapse {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50px;
+    background-color: #f2f2f2;
+    transition: all 0.3s ease-in; }
+    @media (min-width: 768px) {
+      #root .header .header-collapse {
+        position: initial;
+        height: initial; } }
+  #root .header .user-bar {
+    flex-direction: row; }
+    #root .header .user-bar .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem; }
   #root .header .user-images {
     display: inline-block;
     vertical-align: middle; }
@@ -35,9 +51,12 @@ img {
     display: inline-block;
     vertical-align: middle; }
     #root .header .user-toggle .user-name {
-      display: inline-block;
+      display: none;
       vertical-align: middle;
       margin-left: 10px; }
+      @media (min-width: 768px) {
+        #root .header .user-toggle .user-name {
+          display: inline-block; } }
     #root .header .user-toggle .dropdown {
       display: inline-block; }
     #root .header .user-toggle .dropdown-toggle {

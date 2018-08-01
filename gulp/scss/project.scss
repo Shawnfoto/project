@@ -297,6 +297,26 @@ $header-line-height: 48px;
     //   }
     // }
     @include navbar-toggler;
+    .header-collapse {
+      position: absolute;
+      left: 0;
+      right: 0;
+      // height: calc(100vh - 100px);
+      top: 50px;
+      background-color: #f2f2f2;
+      transition: all 0.3s ease-in;
+      @include desktop {
+        position: initial;
+        height: initial;
+      }
+    }
+    .user-bar {
+      flex-direction: row;
+      .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+      }
+    }
     .user-images {
       display: inline-block;
       vertical-align: middle;
@@ -309,9 +329,12 @@ $header-line-height: 48px;
       vertical-align: middle;
 
       .user-name {
-        display: inline-block;
+        display: none;
         vertical-align: middle;
         margin-left: 10px;
+        @include desktop {
+          display: inline-block;
+        }
       }
       @include dropdown-customize;
     }

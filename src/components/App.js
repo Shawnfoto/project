@@ -78,7 +78,11 @@ class App extends Component {
               </span>
             </button> */}
 
-            <Collapse isOpen={this.state.header_collapsed} navbar>
+            <Collapse
+              className="header-collapse"
+              isOpen={this.state.header_collapsed}
+              navbar
+            >
               <Nav className="mr-auto" navbar>
                 <NavItem>
                   <NavLink href="/">fire</NavLink>
@@ -89,7 +93,7 @@ class App extends Component {
               </Nav>
             </Collapse>
 
-            <Nav className="ml-auto" navbar>
+            <Nav className="ml-auto user-bar" navbar>
               <NavItem>
                 <NavLink href="/">
                   <Dropdown
