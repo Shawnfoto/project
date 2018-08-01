@@ -57,15 +57,13 @@ img {
       display: inline-block;
       vertical-align: middle; }
 
-#root .sub-header .nav-tabs {
+#root .sub-header .nav-pills {
   flex-wrap: nowrap;
   overflow-x: auto;
-  white-space: nowrap;
-  border: 0; }
-
-#root .sub-header .nav-item {
-  display: inline-block;
-  margin: 0; }
-  #root .sub-header .nav-item .nav-link.active {
-    border: 0;
-    border-bottom: 3px solid red; }
+  white-space: nowrap; }
+  #root .sub-header .nav-pills .nav-item .nav-link {
+    color: black; }
+    #root .sub-header .nav-pills .nav-item .nav-link.active {
+      background-color: initial;
+      border-radius: 0;
+      border-bottom: 3px solid red; }

@@ -39,16 +39,16 @@ class App extends Component {
     super(props);
 
     this.state = {
-      collapsed: false,
+      header_collapsed: false,
       sub_collapsed: false,
       dropdownOpen: false
     };
-    this.toggle = this.toggle.bind(this);
+    this.header_toggle = this.header_toggle.bind(this);
     this.sub_toggle = this.sub_toggle.bind(this);
     this.dropdown_toggle = this.dropdown_toggle.bind(this);
   }
-  toggle() {
-    this.setState({ collapsed: !this.state.collapsed });
+  header_toggle() {
+    this.setState({ header_collapsed: !this.state.header_collapsed });
   }
   sub_toggle() {
     this.setState({ sub_collapsed: !this.state.sub_collapsed });
@@ -64,7 +64,7 @@ class App extends Component {
       <div>
         <div className="header">
           <Navbar color="light" light expand="md">
-            <NavbarToggler onClick={this.toggle} />
+            <NavbarToggler onClick={this.header_toggle} />
             <NavbarBrand href="/">LOGO</NavbarBrand>
 
             {/* <button
@@ -78,7 +78,7 @@ class App extends Component {
               </span>
             </button> */}
 
-            <Collapse isOpen={this.state.collapsed} navbar>
+            <Collapse isOpen={this.state.header_collapsed} navbar>
               <Nav className="mr-auto" navbar>
                 <NavItem>
                   <NavLink href="/">fire</NavLink>
@@ -88,6 +88,7 @@ class App extends Component {
                 </NavItem>
               </Nav>
             </Collapse>
+
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/">
@@ -142,7 +143,7 @@ class App extends Component {
           {/* <Navbar color="light" light expand="md"> */}
           {/* <NavbarToggler onClick={this.sub_toggle} /> */}
           {/* <Collapse isOpen={this.state.sub_collapsed} navbar> */}
-          <ul className="nav nav-tabs">
+          {/* <ul className="nav nav-tabs">
             <li className="nav-item">
               <a className="nav-link active" href="/">
                 Active
@@ -190,7 +191,38 @@ class App extends Component {
                 Link
               </a>
             </li>
-          </ul>
+          </ul> */}
+          <Nav pills>
+            <NavItem>
+              <NavLink href="#" active>
+                Link
+              </NavLink>
+            </NavItem>
+            {/* <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+              <DropdownToggle nav caret>
+                Dropdown
+              </DropdownToggle>
+              <DropdownMenu>
+                <DropdownItem header>Header</DropdownItem>
+                <DropdownItem disabled>Action</DropdownItem>
+                <DropdownItem>Another Action</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>Another Action</DropdownItem>
+              </DropdownMenu>
+            </Dropdown> */}
+            <NavItem>
+              <NavLink href="#">Link</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#">Another Link</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink disabled href="#">
+                Disabled Link
+              </NavLink>
+            </NavItem>
+          </Nav>
+
           {/* <Nav className="mr-auto" navbar>
               <NavItem>
                 <NavLink href="/components/">CAT 1</NavLink>
