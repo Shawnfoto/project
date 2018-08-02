@@ -64,8 +64,12 @@ class App extends Component {
       <div>
         <div className="header">
           <Navbar color="light" light expand="md">
+            {/* <div className="r"> */}
             <NavbarToggler onClick={this.header_toggle} />
-            <NavbarBrand href="/">LOGO</NavbarBrand>
+            <NavbarBrand className="logo-color" href="/">
+              LOGO
+            </NavbarBrand>
+            {/* </div> */}
 
             {/* <button
               className="navbar-toggler"
@@ -77,23 +81,7 @@ class App extends Component {
                 <img src="http://placehold.it/28x28" />
               </span>
             </button> */}
-
-            <Collapse
-              className="header-collapse"
-              isOpen={this.state.header_collapsed}
-              navbar
-            >
-              <Nav className="mr-auto" navbar>
-                <NavItem>
-                  <NavLink href="/">fire</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="/">search</NavLink>
-                </NavItem>
-              </Nav>
-            </Collapse>
-
-            <Nav className="ml-auto user-bar" navbar>
+            <Nav className="user-bar mobile" navbar>
               <NavItem>
                 <NavLink href="/">
                   <Dropdown
@@ -118,29 +106,70 @@ class App extends Component {
                   {/* </div> */}
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink className="checkbox-middle" href="/components/">
-                  <i className="far fa-check-square icon-middle" />
-                </NavLink>
-              </NavItem>
-
-              <li className="nav-item bell">
-                <a className="nav-link" href="/">
-                  <span style={{ marginRight: 24 }}>
-                    <Badge count={3}>
-                      <Avatar
-                        style={{
-                          color: "black",
-                          backgroundColor: "transparent"
-                        }}
-                        shape="circle"
-                        icon="bell"
-                      />
-                    </Badge>
-                  </span>
-                </a>
-              </li>
             </Nav>
+            <Collapse
+              className="header-collapse"
+              isOpen={this.state.header_collapsed}
+              navbar
+            >
+              <Nav className="mr-auto" navbar>
+                <NavItem>
+                  <NavLink href="/">fire</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/">search</NavLink>
+                </NavItem>
+              </Nav>
+
+              <Nav className="ml-auto user-bar desktop" navbar>
+                <NavItem>
+                  <NavLink href="/">
+                    <Dropdown
+                      className="user-toggle"
+                      isOpen={this.state.dropdownOpen}
+                      toggle={this.dropdown_toggle}
+                    >
+                      <DropdownToggle caret>
+                        <span className="user-images">
+                          <img src="http://placehold.it/28x28" />
+                        </span>
+                        <div className="user-name">USER</div>
+                      </DropdownToggle>
+                      <DropdownMenu>
+                        <DropdownItem header>Header</DropdownItem>
+                        <DropdownItem disabled>Action</DropdownItem>
+                        <DropdownItem>Another Action</DropdownItem>
+                        <DropdownItem divider />
+                        <DropdownItem>Another Action</DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                    {/* </div> */}
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="checkbox-middle" href="/components/">
+                    <i className="far fa-check-square icon-middle" />
+                  </NavLink>
+                </NavItem>
+
+                <li className="nav-item bell">
+                  <a className="nav-link" href="/">
+                    <span>
+                      <Badge count={3}>
+                        <Avatar
+                          style={{
+                            color: "black",
+                            backgroundColor: "transparent"
+                          }}
+                          shape="circle"
+                          icon="bell"
+                        />
+                      </Badge>
+                    </span>
+                  </a>
+                </li>
+              </Nav>
+            </Collapse>
           </Navbar>
         </div>
         <div className="sub-header">

@@ -23,51 +23,81 @@ img {
 
 #root .header {
   line-height: 48px; }
+  #root .header .logo-color {
+    margin: 0;
+    color: #b00000; }
   #root .header .navbar-toggler {
     border: 0;
     outline: 0; }
-  #root .header .header-collapse {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50px;
-    background-color: #f2f2f2;
-    transition: all 0.3s ease-in; }
+  #root .header .r {
+    display: flex; }
+  #root .header .mobile {
+    display: initial; }
     @media (min-width: 768px) {
-      #root .header .header-collapse {
-        position: initial;
-        height: initial; } }
-  #root .header .user-bar {
+      #root .header .mobile {
+        display: none; } }
+    #root .header .mobile.user-bar {
+      flex-direction: row; }
+      #root .header .mobile.user-bar .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem; }
+      #root .header .mobile.user-bar .user-toggle {
+        display: inline-block;
+        vertical-align: middle; }
+        #root .header .mobile.user-bar .user-toggle .user-images {
+          display: inline-block;
+          vertical-align: middle; }
+          #root .header .mobile.user-bar .user-toggle .user-images img {
+            border-radius: 50%; }
+        #root .header .mobile.user-bar .user-toggle .user-name {
+          display: none;
+          vertical-align: middle;
+          margin-left: 10px; }
+          @media (min-width: 768px) {
+            #root .header .mobile.user-bar .user-toggle .user-name {
+              display: inline-block; } }
+        #root .header .mobile.user-bar .user-toggle .dropdown {
+          display: inline-block; }
+        #root .header .mobile.user-bar .user-toggle .dropdown-toggle {
+          outline: 0;
+          border: 0;
+          box-shadow: none;
+          padding: 0;
+          background-color: transparent;
+          color: black; }
+          #root .header .mobile.user-bar .user-toggle .dropdown-toggle:after {
+            vertical-align: middle; }
+  #root .header .desktop.user-bar {
     flex-direction: row; }
-    #root .header .user-bar .nav-link {
+    #root .header .desktop.user-bar .nav-link {
       padding-right: 0.5rem;
       padding-left: 0.5rem; }
-  #root .header .user-images {
-    display: inline-block;
-    vertical-align: middle; }
-    #root .header .user-images img {
-      border-radius: 50%; }
-  #root .header .user-toggle {
-    display: inline-block;
-    vertical-align: middle; }
-    #root .header .user-toggle .user-name {
-      display: none;
-      vertical-align: middle;
-      margin-left: 10px; }
-      @media (min-width: 768px) {
-        #root .header .user-toggle .user-name {
-          display: inline-block; } }
-    #root .header .user-toggle .dropdown {
-      display: inline-block; }
-    #root .header .user-toggle .dropdown-toggle {
-      outline: 0;
-      border: 0;
-      box-shadow: none;
-      padding: 0;
-      background-color: transparent;
-      color: black; }
-      #root .header .user-toggle .dropdown-toggle:after {
+    #root .header .desktop.user-bar .user-toggle {
+      display: inline-block;
+      vertical-align: middle; }
+      #root .header .desktop.user-bar .user-toggle .user-images {
+        display: inline-block;
         vertical-align: middle; }
+        #root .header .desktop.user-bar .user-toggle .user-images img {
+          border-radius: 50%; }
+      #root .header .desktop.user-bar .user-toggle .user-name {
+        display: none;
+        vertical-align: middle;
+        margin-left: 10px; }
+        @media (min-width: 768px) {
+          #root .header .desktop.user-bar .user-toggle .user-name {
+            display: inline-block; } }
+      #root .header .desktop.user-bar .user-toggle .dropdown {
+        display: inline-block; }
+      #root .header .desktop.user-bar .user-toggle .dropdown-toggle {
+        outline: 0;
+        border: 0;
+        box-shadow: none;
+        padding: 0;
+        background-color: transparent;
+        color: black; }
+        #root .header .desktop.user-bar .user-toggle .dropdown-toggle:after {
+          vertical-align: middle; }
   #root .header .checkbox-middle {
     display: inline-block;
     vertical-align: middle;

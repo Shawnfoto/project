@@ -252,18 +252,8 @@
 //     }
 //   }
 // }
-@mixin navbar-toggler {
-  .navbar-toggler {
-    border: 0;
-    outline: 0;
-  }
-}
-@mixin icon-middle {
-  .icon-middle {
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
+
+// user下拉
 @mixin dropdown-customize {
   .dropdown {
     display: inline-block;
@@ -280,6 +270,46 @@
     }
   }
 }
+@mixin user-bar {
+  flex-direction: row;
+  .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .user-toggle {
+    display: inline-block;
+    vertical-align: middle;
+    .user-images {
+      display: inline-block;
+      vertical-align: middle;
+      img {
+        border-radius: 50%;
+      }
+    }
+    .user-name {
+      display: none;
+      vertical-align: middle;
+      margin-left: 10px;
+      @include desktop {
+        display: inline-block;
+      }
+    }
+    @include dropdown-customize;
+  }
+}
+@mixin navbar-toggler {
+  .navbar-toggler {
+    border: 0;
+    outline: 0;
+  }
+}
+@mixin icon-middle {
+  .icon-middle {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
 .ant-avatar {
   display: inline;
 }
@@ -296,48 +326,46 @@ $header-line-height: 48px;
     //     transform: initial;
     //   }
     // }
+    .logo-color {
+      margin: 0;
+      color: #b00000;
+    }
     @include navbar-toggler;
-    .header-collapse {
-      position: absolute;
-      left: 0;
-      right: 0;
-      // height: calc(100vh - 100px);
-      top: 50px;
-      background-color: #f2f2f2;
-      transition: all 0.3s ease-in;
+    .r {
+      display: flex;
+    }
+    // .header-collapse {
+    //   position: absolute;
+    //   left: 0;
+    //   right: 0;
+    //   height: calc(100vh - 82px);
+    //   top: 82px;
+    //   background-color: #f2f2f2;
+    //   // transition: all 0.3s ease-in;
+    //   &.show {
+    //     padding: 10px;
+    //   }
+    //   @include desktop {
+    //     position: initial;
+    //     height: initial;
+    //     padding: initial;
+    //   }
+    // }
+    .mobile {
+      display: initial;
       @include desktop {
-        position: initial;
-        height: initial;
-      }
-    }
-    .user-bar {
-      flex-direction: row;
-      .nav-link {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
-      }
-    }
-    .user-images {
-      display: inline-block;
-      vertical-align: middle;
-      img {
-        border-radius: 50%;
-      }
-    }
-    .user-toggle {
-      display: inline-block;
-      vertical-align: middle;
-
-      .user-name {
         display: none;
-        vertical-align: middle;
-        margin-left: 10px;
-        @include desktop {
-          display: inline-block;
-        }
       }
-      @include dropdown-customize;
+      &.user-bar {
+        @include user-bar;
+      }
     }
+    .desktop {
+      &.user-bar {
+        @include user-bar;
+      }
+    }
+
     .checkbox-middle {
       display: inline-block;
       vertical-align: middle;
