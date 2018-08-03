@@ -17,3 +17,12 @@ img {
 
 .noPadding {
   padding: 0; }
+
+.header {
+  position: relative; }
+
+.trigger {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 9999; }
