@@ -252,177 +252,158 @@
 //     }
 //   }
 // }
-
 // user下拉
-// @mixin dropdown-customize {
-//   .dropdown {
-//     display: inline-block;
-//   }
-//   .dropdown-toggle {
-//     outline: 0;
-//     border: 0;
-//     box-shadow: none;
-//     padding: 0;
-//     background-color: transparent;
-//     color: black;
-//     &:after {
-//       vertical-align: middle;
-//     }
-//   }
-// }
-// @mixin user-bar {
-//   flex-direction: row;
-//   .nav-link {
-//     padding-right: 0.5rem;
-//     padding-left: 0.5rem;
-//   }
-//   .user-toggle {
-//     display: inline-block;
-//     vertical-align: middle;
-//     .user-images {
-//       display: inline-block;
-//       vertical-align: middle;
-//       img {
-//         border-radius: 50%;
-//       }
-//     }
-//     .user-name {
-//       display: none;
-//       vertical-align: middle;
-//       margin-left: 10px;
-//       @include desktop {
-//         display: inline-block;
-//       }
-//     }
-//     @include dropdown-customize;
-//   }
-// }
-// @mixin navbar-toggler {
-//   .navbar-toggler {
-//     border: 0;
-//     outline: 0;
-//   }
-// }
-// @mixin icon-middle {
-//   .icon-middle {
-//     display: inline-block;
-//     vertical-align: middle;
-//   }
-// }
-
-// .ant-avatar {
-//   display: inline;
-// }
-// $header-line-height: 48px;
-// #root {
-//   .header {
-//     line-height: $header-line-height;
-//     // .navbar-brand {
-//     //   position: relative;
-//     //   left: 50%;
-//     //   transform: translateX(-50%);
-//     //   @include desktop {
-//     //     position: initial;
-//     //     transform: initial;
-//     //   }
-//     // }
-//     .logo-color {
-//       margin: 0;
-//       color: #b00000;
-//     }
-//     @include navbar-toggler;
-//     .r {
-//       display: flex;
-//     }
-//     // .header-collapse {
-//     //   position: absolute;
-//     //   left: 0;
-//     //   right: 0;
-//     //   height: calc(100vh - 82px);
-//     //   top: 82px;
-//     //   background-color: #f2f2f2;
-//     //   // transition: all 0.3s ease-in;
-//     //   &.show {
-//     //     padding: 10px;
-//     //   }
-//     //   @include desktop {
-//     //     position: initial;
-//     //     height: initial;
-//     //     padding: initial;
-//     //   }
-//     // }
-//     .mobile {
-//       display: initial;
-//       @include desktop {
-//         display: none;
-//       }
-//       &.user-bar {
-//         @include user-bar;
-//       }
-//     }
-//     .desktop {
-//       &.user-bar {
-//         @include user-bar;
-//       }
-//     }
-
-//     .checkbox-middle {
-//       display: inline-block;
-//       vertical-align: middle;
-//       height: 100%;
-//       @include icon-middle;
-//     }
-//     // .collapsed-customize {
-//     //   &.show {
-//     //     position: fixed;
-//     //     top: 140px;
-//     //     left: 0;
-//     //     right: 0;
-//     //     background-color: rgb(204, 204, 204);
-//     //   }
-//     // }
-//   }
-//   .sub-header {
-//     // .nav-tabs {
-//     //   flex-wrap: nowrap;
-//     //   overflow-x: auto;
-//     //   white-space: nowrap;
-//     //   border: 0;
-//     // }
-//     .nav-pills {
-//       flex-wrap: nowrap;
-//       overflow-x: auto;
-//       white-space: nowrap;
-//       // border: 0;
-//       .nav-item {
-//         // display: inline-block;
-
-//         .nav-link {
-//           color: black;
-//           &.active {
-//             background-color: initial;
-//             border-radius: 0;
-//             border-bottom: 3px solid red;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-
-// .logo {
-//   width: 120px;
-//   height: 31px;
-//   background: rgba(255, 255, 255, 0.2);
-//   margin: 16px 28px 16px 0;
-//   //   float: left;
-// }
-.header {
-  position: relative;
+@mixin dropdown-customize {
+  .dropdown {
+    display: inline-block;
+  }
+  .dropdown-toggle {
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    background-color: transparent;
+    color: black;
+    &:after {
+      vertical-align: middle;
+    }
+  }
 }
-.trigger {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  z-index: 9999;
+@mixin user-bar {
+  align-items: center;
+  flex-direction: row;
+  .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .user-toggle {
+    // display: inline-block;
+    // vertical-align: middle;
+    .user-images {
+      display: inline-block;
+      vertical-align: middle;
+      img {
+        border-radius: 50%;
+      }
+    }
+    .user-name {
+      display: none;
+      vertical-align: middle;
+      margin-left: 10px;
+      @include desktop {
+        display: inline-block;
+      }
+    }
+    @include dropdown-customize;
+  }
+}
+@mixin navbar-toggler {
+  .navbar-toggler {
+    border: 0;
+    outline: 0;
+  }
+}
+@mixin icon-middle {
+  .icon-middle {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.ant-avatar {
+  display: inline;
+}
+$header-line-height: 48px;
+#root {
+  .header {
+    line-height: $header-line-height;
+    // .navbar-brand {
+    //   position: relative;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+    //   @include desktop {
+    //     position: initial;
+    //     transform: initial;
+    //   }
+    // }
+    .logo-color {
+      margin: 0;
+      color: #b00000;
+    }
+    @include navbar-toggler;
+   
+    // .header-collapse {
+    //   position: absolute;
+    //   left: 0;
+    //   right: 0;
+    //   height: calc(100vh - 82px);
+    //   top: 82px;
+    //   background-color: #f2f2f2;
+    //   // transition: all 0.3s ease-in;
+    //   &.show {
+    //     padding: 10px;
+    //   }
+    //   @include desktop {
+    //     position: initial;
+    //     height: initial;
+    //     padding: initial;
+    //   }
+    // }
+    .mobile {
+      // display: initial;
+      @include desktop {
+        display: none;
+      }
+      &.user-bar {
+        @include user-bar;
+      }
+    }
+    .desktop {
+      &.user-bar {
+        @include user-bar;
+      }
+    }
+
+    .checkbox-middle {
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+      @include icon-middle;
+    }
+    // .collapsed-customize {
+    //   &.show {
+    //     position: fixed;
+    //     top: 140px;
+    //     left: 0;
+    //     right: 0;
+    //     background-color: rgb(204, 204, 204);
+    //   }
+    // }
+  }
+  .sub-header {
+    // .nav-tabs {
+    //   flex-wrap: nowrap;
+    //   overflow-x: auto;
+    //   white-space: nowrap;
+    //   border: 0;
+    // }
+    .nav-pills {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      // border: 0;
+      .nav-item {
+        // display: inline-block;
+
+        .nav-link {
+          color: black;
+          &.active {
+            background-color: initial;
+            border-radius: 0;
+            border-bottom: 3px solid red;
+          }
+        }
+      }
+    }
+  }
 }

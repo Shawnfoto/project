@@ -6,155 +6,266 @@ import { connect } from "react-redux";
 import * as actions from "actions";
 
 // antd
+
+import { Avatar, Badge, Icon, Menu, Button,Dropdown } from "antd";
 import Drawer from "rc-drawer";
-import { Layout, Menu, Icon } from "antd";
 import "antd/dist/antd.css";
 import "rc-drawer/assets/index.css";
-// import "./assets/index.less";
 import "../css/project.css";
 
-const { Header, Content, Footer, Sider } = Layout;
+// bs
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  // Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
+
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
-// const sideStyle = {
-//   position: "fixed",
-//   top: 0,
-//   left: 0,
-//   right: 0
-// };
 
+const menu = (
+  <Menu>
+    <Menu.Item key="0">
+      <a href="http://www.alipay.com/">1st menu item</a>
+    </Menu.Item>
+    <Menu.Item key="1">
+      <a href="http://www.taobao.com/">2nd menu item</a>
+    </Menu.Item>
+    <Menu.Divider />
+    <Menu.Item key="3">3rd menu item</Menu.Item>
+  </Menu>
+);
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      open: false
+      
+      header_collapsed: false,
+      sub_collapsed: false,
+      dropdownOpen: false
     };
-    // this.toggle = this.toggle.bind(this);
+    this.header_toggle = this.header_toggle.bind(this);
+    this.sub_toggle = this.sub_toggle.bind(this);
+    this.dropdown_toggle = this.dropdown_toggle.bind(this);
   }
-  componentDidMount() {
-    // setTimeout(() => {
-    //   this.setState({
-    //     open: false
-    //   });
-    // }, 2000);
+  header_toggle() {
+    this.setState({ header_collapsed: !this.state.header_collapsed });
   }
-  onChange = bool => {
-    console.log(bool);
-  };
+  sub_toggle() {
+    this.setState({ sub_collapsed: !this.state.sub_collapsed });
+  }
+  dropdown_toggle(e) {
+    e.preventDefault();
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
+  }
+
+  // onChange = bool => {
+  //   console.log(bool);
+  // };
   onTouchEnd = () => {
     this.setState({
-      open: false
+      header_collapsed: false
     });
   };
-  onSwitch = () => {
-    this.setState({
-      open: !this.state.open
-    });
-  };
+
   render() {
     return (
       <div>
-        {/* 抽屜 */}
-        <Drawer
-          onChange={this.onChange}
-          open={this.state.open}
+        {/* mobile Drawer */}
+         <Drawer
+          // onChange={this.onChange}
+          open={this.state.header_collapsed}
           onMaskClick={this.onTouchEnd}
           handler={false}
           level={null}
-          width="20vw"
+          width="200px"
         >
           <Menu
             defaultSelectedKeys={["1"]}
             defaultOpenKeys={["sub1"]}
             mode="inline"
           >
-            <SubMenu
-              key="sub1"
-              title={
-                <span>
-                  <Icon type="mail" />
-                  <span>Navigation One</span>
-                </span>
-              }
-            >
-              <MenuItemGroup key="g1" title="Item 1">
-                <Menu.Item key="1">Option 1</Menu.Item>
-                <Menu.Item key="2">Option 2</Menu.Item>
-              </MenuItemGroup>
-              <MenuItemGroup key="g2" title="Item 2">
-                <Menu.Item key="3">Option 3</Menu.Item>
-                <Menu.Item key="4">Option 4</Menu.Item>
-              </MenuItemGroup>
-            </SubMenu>
-            <SubMenu
-              key="sub2"
-              title={
-                <span>
-                  <Icon type="appstore" />
-                  <span>Navigation Two</span>
-                </span>
-              }
-            >
-              <Menu.Item key="5">Option 5</Menu.Item>
-              <Menu.Item key="6">Option 6</Menu.Item>
-              <SubMenu key="sub3" title="Submenu">
-                <Menu.Item key="7">Option 7</Menu.Item>
-                <Menu.Item key="8">Option 8</Menu.Item>
-              </SubMenu>
-            </SubMenu>
-            <SubMenu
-              key="sub4"
-              title={
-                <span>
-                  <Icon type="setting" />
-                  <span>Navigation Three</span>
-                </span>
-              }
-            >
-              <Menu.Item key="9">Option 9</Menu.Item>
-              <Menu.Item key="10">Option 10</Menu.Item>
-              <Menu.Item key="11">Option 11</Menu.Item>
-              <Menu.Item key="12">Option 12</Menu.Item>
-            </SubMenu>
+           <Menu.Item key="1">
+            <Icon type="mail" />
+            Navigation One
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Icon type="calendar" />
+            Navigation Two
+          </Menu.Item>
+           
           </Menu>
         </Drawer>
-        {/* 抽屜結束*/}
+        {/* mobile Drawer */}
 
-        <Layout>
-          <Header className="header" style={{ background: "#fff", padding: 0 }}>
-            <Icon
-              className="trigger"
-              type={this.state.collapsed ? "menu-unfold" : "menu-fold"}
-              onClick={this.onSwitch}
-            />
-            {/* <div className="logo" /> */}
-            {/* <a href="/">LOGO</a> */}
+        <div className="header">
+          <Navbar color="light" light expand="md">
+            
+            <NavbarToggler onClick={this.header_toggle} />
+            <NavbarBrand className="logo-color" href="/">
+              LOGO
+            </NavbarBrand>
+            
+            <Nav className="user-bar mobile" navbar>
+              <NavItem>
+              <Dropdown className="user-toggle" overlay={menu} trigger={['click']} placement="bottomRight">
+                <a className="ant-dropdown-link" href="#">
+                <span className="user-images">
+                  <img src="http://placehold.it/28x28" />
+                </span>
+                  Click me <Icon type="down" />
+                </a>
+              </Dropdown>
+                {/* <NavLink href="/"> */}
+                
+                  {/* <Dropdown
+                    className="user-toggle"
+                    isOpen={this.state.dropdownOpen}
+                    toggle={this.dropdown_toggle}
+                  >
+                    <DropdownToggle caret>
+                      <span className="user-images">
+                        <img src="http://placehold.it/28x28" />
+                      </span>
+                      <div className="user-name">USER</div>
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      <DropdownItem header>Header</DropdownItem>
+                      <DropdownItem disabled>Action</DropdownItem>
+                      <DropdownItem>Another Action</DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem>Another Action</DropdownItem>
+                    </DropdownMenu>
+                  </Dropdown> */}
+                  {/* </div> */}
+                {/* </NavLink> */}
+              </NavItem>
+            </Nav>
 
-            <Menu
-              mode="horizontal"
-              defaultSelectedKeys={["2"]}
-              style={{ lineHeight: "64px" }}
+            
+            <Collapse
+              className="header-collapse"
+              // isOpen={this.state.header_collapsed}
+              navbar
             >
-              <Menu.Item key="1">nav 1</Menu.Item>
-              <Menu.Item key="2">nav 2</Menu.Item>
-              <Menu.Item key="3">nav 3</Menu.Item>
-            </Menu>
-          </Header>
-          <Layout>
-            <Content
-              style={{
-                margin: "24px 16px",
-                padding: 24,
-                background: "#fff",
-                minHeight: 280
-              }}
-            >
-              Content
-            </Content>
-          </Layout>
-        </Layout>
+              <Nav className="mr-auto" navbar>
+                <NavItem>
+                  <NavLink href="/">FIRE</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/">search</NavLink>
+                </NavItem>
+              </Nav>
+
+              <Nav className="ml-auto user-bar desktop" navbar>
+                <NavItem>
+                <Dropdown className="user-toggle" overlay={menu} trigger={['click']} placement="bottomRight">
+                
+                <a className="ant-dropdown-link" href="#">
+                <span className="user-images">
+                  <img src="http://placehold.it/28x28" />
+                </span>
+                  Click me <Icon type="down" />
+                </a>
+              </Dropdown>
+                  {/* <NavLink href="/"> */}
+
+                 
+
+                 
+                {/* <Dropdown overlay={menu} trigger={['click']}  placement="bottomRight">
+                <a className="ant-dropdown-link" href="#">
+                  Click me <Icon type="down" />
+                </a>
+              </Dropdown> */}
+
+                    {/* <Dropdown
+                      className="user-toggle"
+                      isOpen={this.state.dropdownOpen}
+                      toggle={this.dropdown_toggle}
+                    >
+                      <DropdownToggle caret>
+                        <span className="user-images">
+                          <img src="http://placehold.it/28x28" />
+                        </span>
+                        <div className="user-name">USER</div>
+                      </DropdownToggle>
+                      <DropdownMenu>
+                        <DropdownItem header>Header</DropdownItem>
+                        <DropdownItem disabled>Action</DropdownItem>
+                        <DropdownItem>Another Action</DropdownItem>
+                        <DropdownItem divider />
+                        <DropdownItem>Another Action</DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown> */}
+                    {/* </div> */}
+                  {/* </NavLink> */}
+                </NavItem>
+                <NavItem>
+                  <NavLink className="checkbox-middle" href="/components/">
+                    <i className="far fa-check-square icon-middle" />
+                  </NavLink>
+                </NavItem>
+
+                <li className="nav-item bell">
+                  <a className="nav-link" href="/">
+                    <span>
+                      <Badge count={3}>
+                        <Avatar
+                          style={{
+                            color: "black",
+                            backgroundColor: "transparent"
+                          }}
+                          shape="circle"
+                          icon="bell"
+                        />
+                      </Badge>
+                    </span>
+                  </a>
+                </li>
+              </Nav>
+            </Collapse>
+
+
+          </Navbar>
+        </div>
+        <div className="sub-header">
+          
+          <Nav pills>
+            <NavItem>
+              <NavLink href="#" active>
+                Link
+              </NavLink>
+            </NavItem>
+            
+            <NavItem>
+              <NavLink href="#">Link</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="#">Another Link</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink disabled href="#">
+                Disabled Link
+              </NavLink>
+            </NavItem>
+          </Nav>
+
+         
+        </div>
       </div>
     );
   }
