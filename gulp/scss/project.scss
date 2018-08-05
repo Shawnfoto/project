@@ -252,63 +252,24 @@
 //     }
 //   }
 // }
-// user下拉
-@mixin dropdown-customize {
-  .dropdown {
-    display: inline-block;
-  }
-  .dropdown-toggle {
-    outline: 0;
-    border: 0;
-    box-shadow: none;
-    padding: 0;
-    background-color: transparent;
-    color: black;
-    &:after {
-      vertical-align: middle;
-    }
-  }
-}
-@mixin user-bar {
-  align-items: center;
-  flex-direction: row;
-  .nav-link {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-  }
-  .user-toggle {
-    // display: inline-block;
-    // vertical-align: middle;
-    .user-images {
-      display: inline-block;
-      vertical-align: middle;
-      img {
-        border-radius: 50%;
-      }
-    }
-    .user-name {
-      display: none;
-      vertical-align: middle;
-      margin-left: 10px;
-      @include desktop {
-        display: inline-block;
-      }
-    }
-    @include dropdown-customize;
-  }
-}
+
+
+
+
+
+
 @mixin navbar-toggler {
   .navbar-toggler {
     border: 0;
     outline: 0;
   }
 }
-@mixin icon-middle {
-  .icon-middle {
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
+// @mixin icon-middle {
+//   .icon-middle {
+//     display: inline-block;
+//     vertical-align: middle;
+//   }
+// }
 
 .ant-avatar {
   display: inline;
@@ -317,59 +278,90 @@ $header-line-height: 48px;
 #root {
   .header {
     line-height: $header-line-height;
-    // .navbar-brand {
-    //   position: relative;
-    //   left: 50%;
-    //   transform: translateX(-50%);
-    //   @include desktop {
-    //     position: initial;
-    //     transform: initial;
-    //   }
-    // }
-    .logo-color {
-      margin: 0;
-      color: #b00000;
+    .navbar{
+      justify-content: space-between;
     }
-    @include navbar-toggler;
-   
-    // .header-collapse {
-    //   position: absolute;
-    //   left: 0;
-    //   right: 0;
-    //   height: calc(100vh - 82px);
-    //   top: 82px;
-    //   background-color: #f2f2f2;
-    //   // transition: all 0.3s ease-in;
-    //   &.show {
-    //     padding: 10px;
-    //   }
-    //   @include desktop {
-    //     position: initial;
-    //     height: initial;
-    //     padding: initial;
-    //   }
-    // }
-    .mobile {
-      // display: initial;
-      @include desktop {
+    .function-mobile{
+      display: flex;
+      @include navbar-toggler;
+      @include desktop{
         display: none;
       }
-      &.user-bar {
-        @include user-bar;
+    }
+    .brand{
+      margin: 0;
+      padding: 8px;
+      color: red
+    }
+    
+    .header-collapse {
+      &::before{
+        content:"|"
+      }
+      position: absolute;
+      left: 0;
+      right: 0;
+      // height: calc(100vh - 100px);
+      top: 80px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      // transition: all 0.3s ease-in;
+      @include desktop {
+        position: initial;
+        height: initial;
+        padding: 0;
+        // flex-grow: 0;
       }
     }
-    .desktop {
-      &.user-bar {
-        @include user-bar;
+   
+    .user-bar {
+      align-items: center;
+      flex-direction: row;
+      .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
       }
-    }
 
-    .checkbox-middle {
+      &.mobile{
+        .check{
+          display: none;
+        }
+        .bell{
+          display: none;
+        }
+        @include desktop{
+          display: none;
+        }
+      }
+
+    }
+    .user-images {
       display: inline-block;
       vertical-align: middle;
-      height: 100%;
-      @include icon-middle;
+      img {
+        border-radius: 50%;
+      }
     }
+    .user-toggle {
+      // display: inline-block;
+      // vertical-align: middle;
+
+      .user-name {
+        display: none;
+        vertical-align: middle;
+        margin-left: 10px;
+        @include desktop {
+          display: inline-block;
+        }
+      }
+      // @include dropdown-customize;
+    }
+    // .checkbox-middle {
+    //   display: inline-block;
+    //   vertical-align: middle;
+    //   height: 100%;
+    //   @include icon-middle;
+    // }
     // .collapsed-customize {
     //   &.show {
     //     position: fixed;
@@ -379,6 +371,11 @@ $header-line-height: 48px;
     //     background-color: rgb(204, 204, 204);
     //   }
     // }
+  }
+  .s{
+    @include desktop{
+      display: none;
+    }
   }
   .sub-header {
     // .nav-tabs {
