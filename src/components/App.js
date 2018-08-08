@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import * as actions from "actions";
 
 // antd
-import { Avatar, Badge, Icon, Dropdown, Menu} from "antd";
+import { Avatar, Badge, Icon, Dropdown, Menu } from "antd";
 import "antd/dist/antd.css";
 import "../css/project.css";
 
@@ -20,7 +20,6 @@ import {
   NavItem,
   NavLink,
   UncontrolledDropdown,
-  
   DropdownToggle,
   DropdownMenu,
   DropdownItem
@@ -69,30 +68,32 @@ class App extends Component {
       <div>
         <div className="header">
           <Navbar color="light" light expand="md">
-
-            <div className="function-mobile">
+            <div className="navbar-toggle-search">
               <NavbarToggler onClick={this.header_toggle} />
               <Nav className="search-nav" navbar>
-                  <NavItem>
-                    {/* <NavLink href="/">search</NavLink> */}
-                    <a href="javascript:void(0)" className="search-open">
-                      <i className="fa fa-search"></i>
-                    </a>
-                  </NavItem>
-                </Nav>
+                <NavItem>
+                  {/* <NavLink href="/">search</NavLink> */}
+                  <a href="javascript:void(0)" className="search-open">
+                    <i className="fa fa-search" />
+                  </a>
+                </NavItem>
+              </Nav>
             </div>
-           
-            <NavbarBrand className="brand" href="/">LOGO</NavbarBrand>
+
+            <NavbarBrand id="brand" href="/">
+              LOGO
+            </NavbarBrand>
 
             <Collapse
-              className="header-collapse"
+              id="header-collapse"
               isOpen={this.state.header_collapsed}
               navbar
             >
               <Nav className="" navbar>
                 <NavItem>
-                  <NavLink href="/"><i className="fas fa-rocket"></i></NavLink>
-                  
+                  <NavLink href="/">
+                    <i className="fas fa-rocket" />
+                  </NavLink>
                 </NavItem>
               </Nav>
 
@@ -100,21 +101,26 @@ class App extends Component {
                 <NavItem>
                   {/* <NavLink href="/">search</NavLink> */}
                   <a href="javascript:void(0)" className="search-open">
-                    <i className="fa fa-search"></i>
+                    <i className="fa fa-search" />
                   </a>
                 </NavItem>
               </Nav>
 
               <Nav className="ml-auto user-bar desktop" navbar>
                 <NavItem className="user">
-                  <Dropdown className="user-toggle" overlay={menu} trigger={['click']} placement="bottomRight">
+                  <Dropdown
+                    className="user-toggle"
+                    overlay={menu}
+                    trigger={["click"]}
+                    placement="bottomRight"
+                  >
                     <a className="ant-dropdown-link" href="#">
-                    <span className="user-images">
-                      <img src="http://placehold.it/28x28" />
-                    </span>
-                    <span className="user-name">
+                      <span className="user-images">
+                        <img src="http://placehold.it/28x28" />
+                      </span>
+                      {/* <span className="user-name">
                     USER
-                    </span>
+                    </span> */}
                       <Icon type="down" />
                     </a>
                   </Dropdown>
@@ -142,21 +148,23 @@ class App extends Component {
                     </span>
                   </a>
                 </li>
-                </Nav>
+              </Nav>
             </Collapse>
 
-            <Nav className="user-bar mobile" navbar>     
+            <Nav className="user-bar mobile" navbar>
               <NavItem>
-                <Dropdown className="user-toggle" overlay={menu} trigger={['click']} placement="bottomRight">
-                  
+                <Dropdown
+                  className="user-toggle"
+                  overlay={menu}
+                  trigger={["click"]}
+                  placement="bottomRight"
+                >
                   <a className="ant-dropdown-link" href="#">
-                  <span className="user-images">
-                    <img src="http://placehold.it/28x28" />
-                  </span>
-                  <span className="user-name">
-                  USER
-                  </span>
-                    
+                    <span className="user-images">
+                      <img src="http://placehold.it/28x28" />
+                    </span>
+                    <span className="user-name">USER</span>
+
                     <Icon type="down" />
                   </a>
                 </Dropdown>
@@ -185,9 +193,6 @@ class App extends Component {
                 </a>
               </li>
             </Nav>
-                       
-
-            
 
             {/* <div className="search-inline">
                 <form>
@@ -200,21 +205,17 @@ class App extends Component {
                     </a>
                 </form>
             </div> */}
-
-            
           </Navbar>
         </div>
 
-        
         <div className="sub-header">
-          
           <Nav pills>
             <NavItem>
               <NavLink href="#" active>
                 Link
               </NavLink>
             </NavItem>
-   
+
             <NavItem>
               <NavLink href="#">Link</NavLink>
             </NavItem>
@@ -227,8 +228,6 @@ class App extends Component {
               </NavLink>
             </NavItem>
           </Nav>
-
-         
         </div>
       </div>
     );

@@ -1,0 +1,29 @@
+@import "../helpers/_variables.scss";
+
+* {
+  font-family: "Noto Serif", serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+html {
+  font-size: $font-size-base;
+}
+body {
+  // overflow: hidden;
+  font-size: 1rem;
+  // background-color: #f1f1f1;
+}
+img {
+  width: 100%;
+  display: block;
+}
+.list-group-item:first-child {
+  border-radius: 0;
+}
+
+.noPadding {
+  padding: 0;
+}
+.ant-avatar {
+  display: inline;
+}

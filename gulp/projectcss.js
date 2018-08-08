@@ -7,7 +7,7 @@ var base64 = require("gulp-base64");
 var sass = require("gulp-sass");
 var watch = require("gulp-watch");
 
-var name = "./scss/project.scss";
+var name = "./scss/page/project.scss";
 var outputfile = "../src/css";
 
 gulp.task("sass", function() {
