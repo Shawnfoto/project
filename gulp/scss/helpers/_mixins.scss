@@ -1,0 +1,6 @@
+@import "../helpers/_variables.scss";
+@mixin sub-header-active-style {
+    background-color: initial;
+    border-radius: 0;
+    border-bottom: 3px solid $sub-header-active-color;
+  }

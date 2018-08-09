@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import * as actions from "actions";
 
 // antd
-import { Avatar, Badge, Icon, Dropdown, Menu } from "antd";
+import { Avatar, Badge, Icon, Dropdown, Menu, Button } from "antd";
 import "antd/dist/antd.css";
 import "../css/project.css";
 
@@ -18,11 +18,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  NavLink
 } from "reactstrap";
 
 const menu = (
@@ -49,7 +45,6 @@ class App extends Component {
     };
     this.header_toggle = this.header_toggle.bind(this);
     this.sub_toggle = this.sub_toggle.bind(this);
-    // this.dropdown_toggle = this.dropdown_toggle.bind(this);
   }
   header_toggle() {
     this.setState({ header_collapsed: !this.state.header_collapsed });
@@ -57,23 +52,17 @@ class App extends Component {
   sub_toggle() {
     this.setState({ sub_collapsed: !this.state.sub_collapsed });
   }
-  // dropdown_toggle(e) {
-  //   e.preventDefault();
-  //   this.setState(prevState => ({
-  //     dropdownOpen: !prevState.dropdownOpen
-  //   }));
-  // }
+
   render() {
     return (
       <div>
-        <div className="header">
+        <div id="header">
           <Navbar color="light" light expand="md">
             <div className="navbar-toggle-search">
               <NavbarToggler onClick={this.header_toggle} />
               <Nav className="search-nav" navbar>
                 <NavItem>
-                  {/* <NavLink href="/">search</NavLink> */}
-                  <a href="javascript:void(0)" className="search-open">
+                  <a href="javascript:void(0)" className="nav-link search-open">
                     <i className="fa fa-search" />
                   </a>
                 </NavItem>
@@ -100,7 +89,7 @@ class App extends Component {
               <Nav className="mr-auto search-nav desktop" navbar>
                 <NavItem>
                   {/* <NavLink href="/">search</NavLink> */}
-                  <a href="javascript:void(0)" className="search-open">
+                  <a href="javascript:void(0)" className="nav-link search-open">
                     <i className="fa fa-search" />
                   </a>
                 </NavItem>
@@ -108,22 +97,21 @@ class App extends Component {
 
               <Nav className="ml-auto user-bar desktop" navbar>
                 <NavItem className="user">
-                  <Dropdown
+                  {/* <Dropdown
                     className="user-toggle"
                     overlay={menu}
                     trigger={["click"]}
                     placement="bottomRight"
                   >
-                    <a className="ant-dropdown-link" href="#">
+                    <a className="nav-link ant-dropdown-link" href="#">
                       <span className="user-images">
                         <img src="http://placehold.it/28x28" />
                       </span>
-                      {/* <span className="user-name">
-                    USER
-                    </span> */}
+
                       <Icon type="down" />
                     </a>
-                  </Dropdown>
+                  </Dropdown> */}
+                  <Button>Login</Button>
                 </NavItem>
 
                 <NavItem>
@@ -159,7 +147,7 @@ class App extends Component {
                   trigger={["click"]}
                   placement="bottomRight"
                 >
-                  <a className="ant-dropdown-link" href="#">
+                  <a className="nav-link ant-dropdown-link" href="#">
                     <span className="user-images">
                       <img src="http://placehold.it/28x28" />
                     </span>
@@ -221,11 +209,6 @@ class App extends Component {
             </NavItem>
             <NavItem>
               <NavLink href="#">Another Link</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink disabled href="#">
-                Disabled Link
-              </NavLink>
             </NavItem>
           </Nav>
         </div>

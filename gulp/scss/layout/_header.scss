@@ -1,0 +1,113 @@
+@import "../helpers/_media-queries.scss";
+@import "../helpers/_variables.scss";
+@import "../helpers/_mixins.scss";
+
+
+
+
+#root {
+  .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  #header {
+    line-height: $header-line-height;
+    .navbar {
+      justify-content: space-between;
+    }
+    #brand {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 8px;
+      color: red;
+      @include desktop {
+        position: initial;
+        transform: initial;
+      }
+    }
+    .navbar-toggle-search {
+      display: flex;
+      .navbar-toggler {
+        border: 0;
+        outline: 0;
+      }
+      @include desktop {
+        display: none;
+      }
+    }
+    #header-collapse {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 80px;
+      // height: calc(100vh - 100px);
+      // transition: all 0.3s ease-in;
+      background-color: #f2f2f2;
+
+      @include desktop {
+        position: initial;
+        height: initial;
+        padding: 0;
+        &::before {
+          content: "|";
+          padding: 0 8px;
+        }
+        // flex-grow: 0;
+      }
+    }
+    .user-bar {
+      align-items: center;
+      flex-direction: row;
+    }
+    .user-bar.mobile {
+      .check {
+        display: none;
+      }
+      .bell {
+        display: none;
+      }
+      @include desktop {
+        display: none;
+      }
+    }
+
+    .user-toggle {
+      .user-images {
+        display: inline-block;
+        vertical-align: middle;
+        img {
+          border-radius: 50%;
+        }
+      }
+      .user-name {
+        display: none;
+        vertical-align: middle;
+        margin-left: 10px;
+        @include desktop {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .sub-header {
+    .nav-pills {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      .nav-item {
+        .nav-link {
+          color: $sub-header-color;
+          &.active {
+            @include sub-header-active-style;
+          }
+        }
+      }
+    }
+  }
+}
